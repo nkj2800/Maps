@@ -39,7 +39,7 @@ export class CustomMap {
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
-        lng: mappable.location.long
+        lng: mappable.location.lng
       }
     })
   }
