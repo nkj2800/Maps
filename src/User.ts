@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker'
+import { Mappable } from './CustonMap'
 
 export class User {
   name: string

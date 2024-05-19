@@ -2,7 +2,7 @@
 // import { Company } from './Company'
 
 //act as a gatekeeper for the addMarker method.
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number,
     lng: number
