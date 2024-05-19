@@ -1,5 +1,13 @@
-import { User } from './User'
-import { Company } from './Company'
+// import { User } from './User'
+// import { Company } from './Company'
+
+//act as a gatekeeper for the addMarker method.
+interface Mappable {
+  location: {
+    lat: number,
+    lng: number
+  }
+}
 
 export class CustomMap {
   private googleMap: google.maps.Map
@@ -13,6 +21,7 @@ export class CustomMap {
       }
     })
   }
+// solution 1)
 
   // addUserMarker(user: User): void {
   //   new google.maps.Marker({
@@ -34,7 +43,21 @@ export class CustomMap {
   //   })
   // }
 
-  addMarker(mappable: User | Company): void {
+// solution 2)
+
+  // addMarker(mappable: User | Company): void {
+  //   new google.maps.Marker({
+  //     map: this.googleMap,
+  //     position: {
+  //       lat: mappable.location.lat,
+  //       lng: mappable.location.lng
+  //     }
+  //   })
+  // }
+
+// solution 3) the best one
+
+  addMarker(mappable: Mappable): void {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
