@@ -21,7 +21,7 @@ export class CustomMap {
       }
     })
   }
-// solution 1)
+  // solution 1)
 
   // addUserMarker(user: User): void {
   //   new google.maps.Marker({
@@ -43,7 +43,7 @@ export class CustomMap {
   //   })
   // }
 
-// solution 2)
+  // solution 2)
 
   // addMarker(mappable: User | Company): void {
   //   new google.maps.Marker({
@@ -55,15 +55,23 @@ export class CustomMap {
   //   })
   // }
 
-// solution 3) the best one
+  // solution 3) the best one
 
   addMarker(mappable: Mappable): void {
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
+    })
+
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: 'HI'
+      })
+
+      infoWindow.open(this.googleMap, marker)
     })
   }
 } 
